@@ -11,5 +11,103 @@
 
     font-family: 'Megrim', cursive;
 
+    &__title {
+        background: linear-gradient(135deg, rgba(255, 255, 230, 0.7), rgba(85, 200, 246, 0.7));
+        background-clip: text;
+        color: transparent;
+        position: relative;
+        text-shadow: 0 0 1px #000;
+        filter: drop-shadow(0 0 2px rgb(255, 255, 255))
+    }
+
+    &__neon {
+        color: transparent;
+
+        animation: neon 3s linear infinite;
+    }
+
+
+}
+
+
+@keyframes neon {
+    0% {
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+    }
+
+    30% {
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+    }
+
+    32% {
+        color: rgb(66, 165, 211);
+        text-shadow: 0 0 1px rgb(36, 205, 231);
+    }
+
+
+    34% {
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+    }
+
+    35% {
+        color: rgb(13, 165, 236);
+        text-shadow: 0 0 2px rgb(52, 125, 161);
+    }
+
+
+    36% {
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+    }
+
+    60% {
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+    }
+
+    61% {
+        color: rgb(90, 169, 206);
+        text-shadow: 0 0 7px rgb(46, 116, 151);
+    }
+
+    63% {
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+    }
+
+    70% {
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+    }
+
+    74% {
+        color: rgb(13, 165, 236);
+        text-shadow: 0 0 16px rgb(0, 163, 245);
+    }
+
+
+    77% {
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+    }
+
+    79% {
+        color: rgb(0, 174, 255);
+        text-shadow: 0 0 13px rgb(2, 165, 251);
+    }
+
+
+    80% {
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+    }
+
+    100% {
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+    }
 
 }
