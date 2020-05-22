@@ -3,6 +3,8 @@ import './App.scss';
 
 import Background from './components/Background'
 import Header from './components/Header'
+import AboutMe from './components/AboutMe'
+
 
 function App() {
   return (
@@ -15,6 +17,10 @@ function App() {
       <header className="header">
         <Header />
       </header>
+
+      <section className="aboutme">
+        <AboutMe />
+      </section>
 
     </div>
   );
