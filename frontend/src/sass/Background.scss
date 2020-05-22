@@ -1,0 +1,70 @@
+.background {
+    position: fixed;
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+
+    &__star {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        animation: animate 8s ease-in-out infinite;
+    }
+
+    &__star--1 {
+        background: url('../images/star1.png');
+    }
+
+}
+
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
