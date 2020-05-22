@@ -1,10 +1,16 @@
 import React from 'react';
 import './App.css';
 
+import Background from './components/Background'
+
 function App() {
   return (
     <div className="App">
-      start frontend
+
+      <section className="background">
+        <Background />
+      </section>
+
     </div>
   );
 }
