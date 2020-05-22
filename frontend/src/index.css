@@ -8,5 +8,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  color: #cacaca;
   font-size: 10px;
 }

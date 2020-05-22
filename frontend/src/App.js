@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.scss';
+
 import Background from './components/Background'
+import Header from './components/Header'
 
 function App() {
   return (
@@ -11,7 +13,7 @@ function App() {
       </section>
 
       <header className="header">
-
+        <Header />
       </header>
 
     </div>
