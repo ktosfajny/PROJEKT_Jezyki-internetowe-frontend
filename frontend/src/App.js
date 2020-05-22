@@ -1,6 +1,5 @@
 import React from 'react';
-import './App.css';
-
+import './App.scss';
 import Background from './components/Background'
 
 function App() {
@@ -10,6 +9,10 @@ function App() {
       <section className="background">
         <Background />
       </section>
+
+      <header className="header">
+
+      </header>
 
     </div>
   );

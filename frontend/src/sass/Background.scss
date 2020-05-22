@@ -1,0 +1,117 @@
+.background {
+    position: fixed;
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+
+    &__star {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        animation: animate 16s ease-in-out infinite, moving 32s linear infinite;
+    }
+
+    &__star--1 {
+        animation-delay: 0s;
+        background: url('../images/star1.png');
+    }
+
+    &__star--2 {
+        animation-delay: -1s;
+        background: url('../images/star2.png');
+    }
+
+    &__star--3 {
+        animation-delay: -2s;
+        background: url('../images/star3.png');
+    }
+
+    &__star--4 {
+        animation-delay: -3s;
+        background: url('../images/star4.png');
+    }
+
+    &__star--5 {
+        animation-delay: -4s;
+        background: url('../images/star5.png');
+    }
+
+    &__star--6 {
+        animation-delay: -5s;
+        background: url('../images/star6.png');
+    }
+
+    &__star--7 {
+        animation-delay: -6s;
+        background: url('../images/star7.png');
+    }
+
+    &__star--8 {
+        animation-delay: -7s;
+        background: url('../images/star8.png');
+    }
+
+
+}
+
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes moving {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(2);
+    }
+}
