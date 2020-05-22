@@ -10,6 +10,10 @@ function App() {
         <Background />
       </section>
 
+      <header className="header">
+
+      </header>
+
     </div>
   );
 }
