@@ -4,7 +4,7 @@ import './App.scss';
 import Background from './components/Background'
 import Header from './components/Header'
 import AboutMe from './components/AboutMe'
-
+import Recruit from './components/Recruit'
 
 function App() {
   return (
@@ -20,6 +20,10 @@ function App() {
 
       <section className="aboutme">
         <AboutMe />
+      </section>
+
+      <section className="recruit">
+        <Recruit />
       </section>
 
     </div>
