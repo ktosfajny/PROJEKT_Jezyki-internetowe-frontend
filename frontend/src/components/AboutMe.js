@@ -3,7 +3,7 @@ import '../sass/aboutme.scss'
 import netrunner from '../images/netrunner.png'
 import { TweenMax } from 'gsap'
 
-
+import Infobox from './Infobox'
 
 
 
@@ -12,11 +12,13 @@ class AboutMe extends React.Component {
     state = {
         message1: '',
         message2: '',
+        letterIndex1: 0,
+        letterIndex2: 0,
+        intervalsAreSet: false
     }
+    interval = '';
+    interval2 = '';
 
-    letterIndex1 = 0;
-    letterIndex2 = 0;
-    intervalsAreSet = false
 
     text = {
         text1: `The are many galactic races in our galaxy: Grey alien, Reptilians, Energy beeing, Pleiades and so on. In order to be in good relations with each other race, we need to present ourselves as great, strong and willful beeings. It can't be achived without strong space force. So if you feel you are fitting us, let us know!`,
@@ -28,31 +30,28 @@ class AboutMe extends React.Component {
     showNextLetter = (messageNR) => {
 
         if (messageNR === 1) {
-            const { message1 } = this.state
+            const { message1, letterIndex1 } = this.state
             const { text1 } = this.text
 
             let newMessage1 = message1;
 
             this.setState({
-                message1: newMessage1 += text1[this.letterIndex1],
+                message1: newMessage1 += text1[letterIndex1],
+                letterIndex1: letterIndex1 + 1
             })
-
-            this.letterIndex1++;
         }
 
         else {
-            const { message2, } = this.state
+            const { message2, letterIndex2 } = this.state
             const { text2, } = this.text
 
             let newMessage2 = message2;
 
             this.setState({
-                message2: newMessage2 += text2[this.letterIndex2],
+                message2: newMessage2 += text2[letterIndex2],
+                letterIndex2: letterIndex2 + 1
             })
-
-            this.letterIndex2++;
         }
-
     }
 
 
@@ -65,7 +64,7 @@ class AboutMe extends React.Component {
             const offset = window.pageYOffset
             const aboutMeOffset = document.querySelector('.header').clientHeight;
 
-            if (offset > aboutMeOffset * 0.7 && !this.intervalsAreSet) {
+            if (offset > aboutMeOffset * 0.7 && !this.state.intervalsAreSet) {
 
 
                 TweenMax.to(message, 1, {
@@ -77,21 +76,23 @@ class AboutMe extends React.Component {
                     this.interval2 = setInterval(this.showNextLetter.bind(this, 2), 80)
 
                 }, 1000)
-                this.intervalsAreSet = true;
 
-
+                this.setState({
+                    intervalsAreSet: true,
+                })
             }
         })
     }
 
     componentDidUpdate() {
+        const { letterIndex1, letterIndex2 } = this.state
         const { text1, text2 } = this.text
 
-        if (this.letterIndex1 >= text1.length - 1) {
+        if (letterIndex1 >= text1.length - 1) {
             clearInterval(this.interval)
         }
 
-        if (this.letterIndex2 >= text2.length) {
+        if (letterIndex2 >= text2.length) {
             clearInterval(this.interval2)
         }
     }
@@ -127,17 +128,16 @@ class AboutMe extends React.Component {
 
                         <div className="aboutme__rs">
 
-                            <div className="aboutme__info-box">
-                                <h3 className="aboutme__info-title">WE NEED YOUR HELP</h3>
-                                <p className="aboutme__info">{this.state.message1} <span className="aboutme__cursor">|</span></p>
+                            <Infobox
+                                title='WE NEED YOUR HELP'
+                                message={this.state.message1}
+                            />
 
-                            </div>
+                            <Infobox
+                                title='WHO WE NEED?'
+                                message={this.state.message2}
+                            />
 
-                            <div className="aboutme__info-box">
-                                <h3 className="aboutme__info-title">WHO WE NEED?</h3>
-                                <p className="aboutme__info">{this.state.message2} <span className="aboutme__cursor">|</span></p>
-
-                            </div>
 
                         </div>
 
