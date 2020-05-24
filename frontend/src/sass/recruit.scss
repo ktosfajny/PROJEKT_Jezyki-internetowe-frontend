@@ -13,13 +13,95 @@
     &__wrapper {
         width: 80%;
         height: 90%;
-        // border: 2px solid rgba(22, 116, 204, 0.8);
         position: relative;
+
+        // border: 2px solid rgba(22, 116, 204, 0.8);
+
         // display: flex;
         // flex-direction: column;
         // justify-content: space-between;
         // align-items: center;
+
+        // height: 80%;
+        // width: 80%;
+        // background-color: rgba(11, 53, 73, 0.6);
+        // box-shadow: 0 0 8px 1px rgb(4, 26, 36);
+        // border-radius: 10px;
+        // position: relative;
     }
+
+    &__questionsBox {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+        background-color: rgba(11, 53, 73, 0.6);
+        display: none;
+        opacity: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 8px 1px rgb(4, 26, 36);
+    }
+
+    &__cybershape {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(165deg, rgba(0, 2, 3, 0.8), rgba(1, 16, 34, 0.8)), url('../images/hexagon-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        clip-path: polygon(1% 2%, 44% 2%, 49% 18%, 90% 18%, 96% 25%, 96% 60%, 99% 73%, 99% 98%, 20% 98%, 1% 80%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        border: 2px solid rgba(222, 16, 4, 0.8);
+    }
+
+    &__ls {
+        width: 45%;
+        height: 100%;
+        // background-color: #fff;
+        border: 2px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 30px;
+        padding-top: 15%;
+
+    }
+
+
+    &__rs {
+        width: 55%;
+        height: 100%;
+        // background-color: #567;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        padding: 20px;
+        padding-top: 10%;
+    }
+
+    &__questionNR {
+        padding: 10px;
+        font-size: 1.4rem;
+    }
+
+    &__questionInfo {
+        font-size: 1rem;
+
+        padding: 0 5px 5px 5px;
+        border-left: 2px solid rgba(4, 163, 236, 0.8);
+        padding: 10px;
+        background-image: linear-gradient(135deg, rgba(13, 86, 134, 0.424), rgba(5, 54, 77, 0.014));
+        height: 145px;
+    }
+
+
+
+
 
     &__btn {
         position: relative;
@@ -149,15 +231,5 @@
 
 
 
-    &__questionsBox {
-        position: absolute;
-        height: 100%;
-        width: 70%;
-        background-color: rgba(11, 53, 73, 0.6);
-        display: none;
-        opacity: 0;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+
 }
