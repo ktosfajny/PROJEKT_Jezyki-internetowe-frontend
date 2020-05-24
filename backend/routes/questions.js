@@ -1,25 +1,39 @@
 function questions(app) {
 
+    const fs = require('fs')
 
 
+    let questionsDB;
 
-    const questionsDB = [
-        { questionNR: `1. what would you do when see an alien?`, questionInfo: `Every action takes reaction so pay atention to what you're doing. Depending on what would you do, you may obtain an ally, an foe, friend or sometimes even someone who can change the way you see the world.`, answerInfo: [`I would try to hide and plug my computer to the local web so I can observe the other beeing and decide what should I do.`, `New creature? It means only one thing: New preparation for the laboratory. I would try to get some of its DNA or blood and examine it.`, ` I'm not interested in living beeings. Only creatures that surrended their live to the machines are worth checking! I would let it go.`, `There is only one way to survive. You must be strong. I would let it go, but if it would be dangerous I would be less polite...`] },
-        { questionNR: `2. asdasdasdasdas?`, questionInfo: `dfbdffsdbdfbdf`, answerInfo: [`dfgdfgdfgfdg`, `tjsnr`, ` yjyrsrthb`, `segrsg`] },
-        { questionNR: `3. gthtrh`, questionInfo: `rewgew`, answerInfo: [`dh`, `htht`, ` yukmdudjy`, `myfg`] },
-        { questionNR: `4. trhjy6h?`, questionInfo: `43657t5rhf`, answerInfo: [`th5y7`, `7irs6h`, `6u6s6h`, `5weg`] },
+    fs.readFile('../database.json', 'utf8', (err, data) => {
+        if (err) return console.log('Error: ' + err)
+        else questionsDB = JSON.parse(data)
+    })
+
+    const characters = [
+        { name: 'Netrunner', info: 'You are a very knowledgeable person and you are good at solving problems.' },
+        { name: 'Bioengineer', info: 'You love everything that is living.' },
+        { name: 'Mechanic', info: 'You are not afraid to get dirty with oils.' },
+        { name: 'Shooter', info: 'You are strong person.' },
     ]
 
 
+    //ten end-point obsługuje wysyłanie kolejnych pytań i okreslenie jaki jest typ characteru
     app.post('/api/question', (req, res) => {
 
         const { nextQuestionNR, stats } = req.body
+        console.log(stats)
 
-
-        //jeśli odpowiedziales juz na wszystko to tutaj zwroci się ostateczny wynik
+        //jeśli odpowiedziales juz na wszystko to w tym if'ie zwroci się ostateczny wynik
         if (nextQuestionNR === questionsDB.length) {
+
+            //sprawdzenie typu postaci
+            let characterNumber = Math.max(stats[0], stats[1], stats[2], stats[3])
+            characterIndex = stats.findIndex(stat => stat === characterNumber)
+
             res.json({
-                result: 'result' //tutaj użytję 'stats'
+                result: 'result',
+                character: characters[characterIndex],
             })
 
         } else {
@@ -33,7 +47,6 @@ function questions(app) {
 
     })
 
-
 }
 
-module.exports = questions;
+module.exports = questions
