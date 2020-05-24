@@ -4,7 +4,7 @@ import netrunner from '../images/netrunner.png'
 import { TweenMax } from 'gsap'
 
 import Infobox from './Infobox'
-
+import RightSubtitleBox from './RightSubtitleBox'
 
 
 class AboutMe extends React.Component {
@@ -109,8 +109,19 @@ class AboutMe extends React.Component {
                 <div className="aboutme__wrapper">
 
                     <div className="aboutme__right-titles">
-                        <div className="aboutme__right-subtitle-box"><span className="aboutme__right-subtitle">History</span></div>
-                        <div className="aboutme__right-subtitle-box"><span className="aboutme__right-subtitle">Mission Data</span></div>
+
+                        <RightSubtitleBox
+                            boxClass='aboutme__right-subtitle-box'
+                            titleClass='aboutme__right-subtitle'
+                            title='History'
+                        />
+
+                        <RightSubtitleBox
+                            boxClass='aboutme__right-subtitle-box'
+                            titleClass='aboutme__right-subtitle'
+                            title='Mission Data'
+                        />
+
                     </div>
 
                     <div className="aboutme__cybershape">
