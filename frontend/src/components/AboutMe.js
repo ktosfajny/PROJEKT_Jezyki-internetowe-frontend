@@ -1,7 +1,7 @@
 import React from 'react';
 import '../sass/aboutme.scss'
 import netrunner from '../images/netrunner.png'
-
+import { TweenMax } from 'gsap'
 
 
 
@@ -58,6 +58,7 @@ class AboutMe extends React.Component {
 
 
     componentDidMount() {
+        const message = document.querySelectorAll('.aboutme__info')
 
         window.addEventListener('scroll', () => {
 
@@ -65,9 +66,20 @@ class AboutMe extends React.Component {
             const aboutMeOffset = document.querySelector('.header').clientHeight;
 
             if (offset > aboutMeOffset * 0.7 && !this.intervalsAreSet) {
-                this.interval = setInterval(this.showNextLetter.bind(this, 1), 80)
-                this.interval2 = setInterval(this.showNextLetter.bind(this, 2), 80)
+
+
+                TweenMax.to(message, 1, {
+                    width: '100%'
+                })
+
+                setTimeout(() => {
+                    this.interval = setInterval(this.showNextLetter.bind(this, 1), 80)
+                    this.interval2 = setInterval(this.showNextLetter.bind(this, 2), 80)
+
+                }, 1000)
                 this.intervalsAreSet = true;
+
+
             }
         })
     }
