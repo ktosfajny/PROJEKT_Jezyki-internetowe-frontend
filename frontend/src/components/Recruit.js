@@ -4,6 +4,8 @@ import { TweenMax } from 'gsap'
 
 class Recruit extends React.Component {
 
+    nextQuestionNR = 0;
+
     state = {
         questionNR: '',
         questionInfo: '',
@@ -14,6 +16,7 @@ class Recruit extends React.Component {
     }
 
 
+    //ta funkcja jedynie wypełnia pola z pytaniami zdobytymi pytaniami
     fillQuestionElements(data) {
 
         console.log(data)
@@ -35,10 +38,10 @@ class Recruit extends React.Component {
 
 
 
+    //ta funkcja fetchuje dane i jeśli się uda je zdobyć to wywołuje funkcje uzupełniającą pola z pytaniami
     handleFetchData = () => {
         // const { nextQuestionNR, stats } = req.body
 
-        let nextQuestionNR = 0;
 
         //to będzie moja odpowiedź z servera
         // { questionNR: `3. gthtrh`, questionInfo: `rewgew`, answerInfo: [`dh`, `htht`, ` yukmdudjy`, `myfg`] },
@@ -46,7 +49,7 @@ class Recruit extends React.Component {
         fetch('http://localhost:5000/api/question', {
             method: 'POST',
             body: JSON.stringify({
-                nextQuestionNR,
+                nextQuestionNR: this.nextQuestionNR,
                 stats: []
             }), headers: {
                 'Content-Type': 'application/json',
@@ -68,7 +71,8 @@ class Recruit extends React.Component {
     }
 
 
-    handleButtonClick = (e) => {
+    //ta funkcja obsługuje animację buttona, pojawienie się panelu z pytaniami oraz wywołuje funkcję fetch
+    handleMainButtonClick = (e) => {
 
         this.handleFetchData()
 
@@ -90,6 +94,14 @@ class Recruit extends React.Component {
         })
     }
 
+    // ta funkcja obsługuje pobranie kolejnego pytania poprzez jeśli kliknęło się na któryś z kolorowych buttonów
+    handleFetchNextQuestion = (buttonNR) => {
+        this.nextQuestionNR++;
+        this.handleFetchData()
+
+
+    }
+
 
     render() {
 
@@ -98,7 +110,7 @@ class Recruit extends React.Component {
         return (
             <>
                 <div className="recruit__wrapper">
-                    <div className="recruit__btn" onClick={this.handleButtonClick}>
+                    <div className="recruit__btn" onClick={this.handleMainButtonClick}>
                         <span className="recruit__btn-span"></span>
                         <span className="recruit__btn-span"></span>
                         <span className="recruit__btn-span"></span>
@@ -120,7 +132,7 @@ class Recruit extends React.Component {
                                         <div className="recruit__answerInfo">
                                             {answerInfo1}
                                         </div>
-                                        <button className="recruit__option-btn">
+                                        <button className="recruit__option-btn" onClick={() => this.handleFetchNextQuestion(1)}>
                                             Choose
                                     </button>
                                     </div>
@@ -129,7 +141,7 @@ class Recruit extends React.Component {
                                         <div className="recruit__answerInfo">
                                             {answerInfo2}
                                         </div>
-                                        <button className="recruit__option-btn recruit__option-btn--green">
+                                        <button className="recruit__option-btn recruit__option-btn--green" onClick={() => this.handleFetchNextQuestion(2)}>
                                             Choose
                                     </button>
                                     </div>
@@ -139,7 +151,7 @@ class Recruit extends React.Component {
                                         <div className="recruit__answerInfo">
                                             {answerInfo3}
                                         </div>
-                                        <button className="recruit__option-btn recruit__option-btn--yellow">
+                                        <button className="recruit__option-btn recruit__option-btn--yellow" onClick={() => this.handleFetchNextQuestion(3)}>
                                             Choose
                                     </button>
                                     </div>
@@ -149,7 +161,7 @@ class Recruit extends React.Component {
                                         <div className="recruit__answerInfo">
                                             {answerInfo4}
                                         </div>
-                                        <button className="recruit__option-btn recruit__option-btn--red">
+                                        <button className="recruit__option-btn recruit__option-btn--red" onClick={() => this.handleFetchNextQuestion(4)}>
                                             Choose
                                     </button>
                                     </div>
