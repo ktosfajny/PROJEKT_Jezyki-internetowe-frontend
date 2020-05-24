@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 5000;
+const path = require('path')
 
 app.use(express.json())
 
@@ -85,6 +86,19 @@ app.post('/api/question', (req, res) => {
         })
 
     }
+
+})
+
+
+
+// ten end-point zwraca obrazek
+app.get('/api/image', (req, res) => {
+
+    const characterImage = 'NetRunner.png';
+
+    res.sendFile(characterImage, {
+        root: path.join(__dirname, 'static')
+    })
 
 })
 

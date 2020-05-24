@@ -14,8 +14,11 @@ class Recruit extends React.Component {
         answerInfo2: '',
         answerInfo3: '',
         answerInfo4: '',
+         showCharacterImage: false,
         // stats: [0, 0, 0, 0]
     }
+
+
 
 
     //ta funkcja jedynie wypełnia pola z pytaniami zdobytymi pytaniami
@@ -34,16 +37,20 @@ class Recruit extends React.Component {
                 answerInfo3: answerInfo[2],
                 answerInfo4: answerInfo[3],
                 showAnswers: true,
+                
 
             })
         } else {
 
             const { name, info } = data.character
+
+            
+
             this.setState({
                 questionNR: name,
                 questionInfo: info,
                 showAnswers: false,
-
+                showCharacterImage: true,
             })
         }
 
@@ -69,19 +76,6 @@ class Recruit extends React.Component {
 
     //ta funkcja fetchuje dane i jeśli się uda je zdobyć to wywołuje funkcje uzupełniającą pola z pytaniami
     handleFetchData = (buttonNR) => {
-        // const { nextQuestionNR, stats } = req.body
-
-        // console.log(buttonNR)
-
-        // state = {
-        //     questionNR: '',
-        //     questionInfo: '',
-        //     answerInfo1: '',
-        //     answerInfo2: '',
-        //     answerInfo3: '',
-        //     answerInfo4: '',
-        //     // stats: [0, 0, 0, 0]
-        // }
 
         const stats = this.currentState
 
@@ -91,10 +85,6 @@ class Recruit extends React.Component {
             }
         })
 
-        // console.log(stats)
-
-        //to będzie moja odpowiedź z servera
-        // { questionNR: `3. gthtrh`, questionInfo: `rewgew`, answerInfo: [`dh`, `htht`, ` yukmdudjy`, `myfg`] },
 
         fetch('http://localhost:5000/api/question', {
             method: 'POST',
@@ -164,7 +154,7 @@ class Recruit extends React.Component {
 
     render() {
 
-        const { questionNR, questionInfo, answerInfo1, answerInfo2, answerInfo3, answerInfo4, showAnswers } = this.state
+        const { questionNR, questionInfo, answerInfo1, answerInfo2, answerInfo3, answerInfo4, showAnswers,showCharacterImage } = this.state
 
         return (
             <>
@@ -186,6 +176,9 @@ class Recruit extends React.Component {
                             </div>
                             <div className="recruit__rs">
                                 <div className="recruit__answersHolder">
+
+                                {showCharacterImage &&  <img src="http://localhost:5000/api/image" alt="character iamge"/>}
+                                
 
                                     {showAnswers && <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
