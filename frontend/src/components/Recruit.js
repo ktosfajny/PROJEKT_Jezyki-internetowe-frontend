@@ -14,7 +14,7 @@ class Recruit extends React.Component {
                         <span className="recruit__btn-span"></span>
                     </div>
 
-                    <div className="recruit__questions"></div>
+                    <div className="recruit__questionsBox"></div>
 
 
                 </div>
