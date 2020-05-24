@@ -49,7 +49,7 @@ class Recruit extends React.Component {
 
                                     <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
-                                            ery action takes reaction so pay atention to what you're doing. Depending on what would you do
+                                            I would try to hide and plug my computer to the local web so I can observe the other beeing and decide what should I do.
                                         </div>
                                         <button className="recruit__option-btn">
                                             Choose
@@ -58,7 +58,7 @@ class Recruit extends React.Component {
 
                                     <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
-                                            ery action takes reaction so pay atention to what you're doing. Depending on what would you do
+                                            New creature? It means only one thing: New preparation for the laboratory. I would try to get some of its DNA or blood and examine it.
                                         </div>
                                         <button className="recruit__option-btn recruit__option-btn--green">
                                             Choose
@@ -68,7 +68,7 @@ class Recruit extends React.Component {
 
                                     <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
-                                            ery action takes reaction so pay atention to what you're doing. Depending on what would you do
+                                            I'm not interested in living beeings. Only creatures that surrended their live to the machines are worth checking! I would let it go.
                                         </div>
                                         <button className="recruit__option-btn recruit__option-btn--yellow">
                                             Choose
@@ -78,7 +78,7 @@ class Recruit extends React.Component {
 
                                     <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
-                                            ery action takes reaction so pay atention to what you're doing. Depending on what would you do
+                                            There is only one way to survive. You must be strong. I would let it go, but if it would be dangerous I would be less polite...
                                         </div>
                                         <button className="recruit__option-btn recruit__option-btn--red">
                                             Choose

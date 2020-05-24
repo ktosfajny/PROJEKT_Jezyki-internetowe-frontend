@@ -145,6 +145,7 @@
         height: 200px;
         overflow: hidden;
 
+
         &:hover {
             cursor: pointer;
             background: rgb(2, 147, 214);
@@ -274,6 +275,7 @@
         background: rgba(70, 160, 245, 0.609);
         border: none;
         cursor: pointer;
+        border-radius: 7px;
 
         box-shadow:
             0 0 10px rgba(70, 160, 245, 0.609),
