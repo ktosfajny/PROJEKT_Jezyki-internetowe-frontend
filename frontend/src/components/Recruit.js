@@ -4,8 +4,128 @@ import { TweenMax } from 'gsap'
 
 class Recruit extends React.Component {
 
+    nextQuestionNR = 0;
+    currentState = [0, 0, 0, 0];
+  
+    state = {
+        questionNR: '',
+        questionInfo: '',
+        answerInfo1: '',
+        answerInfo2: '',
+        answerInfo3: '',
+        answerInfo4: '',
+         showCharacterImage: false,
+         character: '',
+        // stats: [0, 0, 0, 0]
+    }
 
-    handleButtonClick = (e) => {
+
+
+
+    //ta funkcja jedynie wypełnia pola z pytaniami zdobytymi pytaniami
+    fillQuestionElements(data) {
+
+        // console.log(data)
+
+        if (!data.result) {
+            const { questionNR, questionInfo, answerInfo } = data.question
+
+            this.setState({
+                questionNR,
+                questionInfo,
+                answerInfo1: answerInfo[0],
+                answerInfo2: answerInfo[1],
+                answerInfo3: answerInfo[2],
+                answerInfo4: answerInfo[3],
+                showAnswers: true,
+                
+
+            })
+        } else {
+
+            const { name, info } = data.character
+
+         
+            this.setState({
+                questionNR: name,
+                questionInfo: info,
+                showAnswers: false,
+                showCharacterImage: true,
+                character:name,
+            })
+        }
+
+
+        // { questionNR: `3. gthtrh`, questionInfo: `rewgew`, answerInfo: [`dh`, `htht`, ` yukmdudjy`, `myfg`] },
+
+
+    }
+
+
+    // handleCharacterResponse = (data) => {
+    //     console.log(data)
+
+    //     // wstawić odpowiednie tytuly i zdjęcia:
+    //     // do questionNR - wstawtytuł "twoja kalsa to ... Net-Runner"
+    //     //poniżej wstawić zdjęcie (dodać go html tak sprawdzający czy jest zdjęcie i jak tak to je wyświetlić)
+
+    //     // tutaj trzeba usunąć przyciski i zrobic fetch po odpowiednie zdjecie
+
+
+    // }
+
+
+    //ta funkcja fetchuje dane i jeśli się uda je zdobyć to wywołuje funkcje uzupełniającą pola z pytaniami
+    handleFetchData = (buttonNR) => {
+
+        const stats = this.currentState
+
+        stats.forEach((stat, statIndex) => {
+            if (statIndex + 1 === buttonNR) {
+                stats[statIndex]++;
+            }
+        })
+
+
+        fetch('http://localhost:5000/api/question', {
+            method: 'POST',
+            body: JSON.stringify({
+                nextQuestionNR: this.nextQuestionNR,
+                stats,
+            }), headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(res => {
+                if (res.ok) {
+                    return res
+                }
+                else {
+                    return console.log('something went wrong!')
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                // if (data.result) {
+                //     this.handleCharacterResponse(data)
+
+                // } else {
+                //     this.fillQuestionElements(data)
+                //     console.log('else')
+                // }
+                this.fillQuestionElements(data)
+
+            })
+
+    }
+
+
+    //ta funkcja obsługuje animację buttona, pojawienie się panelu z pytaniami oraz wywołuje funkcję fetch
+    handleMainButtonClick = (e) => {
+
+        this.handleFetchData()
+
         const actionBtn = e.target;
         TweenMax.to(actionBtn, 2, {
             top: '20%',
@@ -24,12 +144,23 @@ class Recruit extends React.Component {
         })
     }
 
+    // ta funkcja obsługuje pobranie kolejnego pytania poprzez jeśli kliknęło się na któryś z kolorowych buttonów
+    handleFetchNextQuestion = (buttonNR) => {
+        this.nextQuestionNR++;
+        this.handleFetchData(buttonNR)
+
+
+    }
+
 
     render() {
+
+        const { questionNR, questionInfo, answerInfo1, answerInfo2, answerInfo3, answerInfo4, showAnswers,showCharacterImage, character} = this.state
+
         return (
             <>
                 <div className="recruit__wrapper">
-                    <div className="recruit__btn" onClick={this.handleButtonClick}>
+                    <div className="recruit__btn" onClick={this.handleMainButtonClick}>
                         <span className="recruit__btn-span"></span>
                         <span className="recruit__btn-span"></span>
                         <span className="recruit__btn-span"></span>
@@ -40,50 +171,56 @@ class Recruit extends React.Component {
                         <div className="recruit__cybershape">
                             <div className="recruit__ls">
                                 <div className="recruit__questionHolder">
-                                    <h3 className="recruit__questionNR">1. what would you do when see an alien?</h3>
-                                    <p className="recruit__questionInfo">Every action takes reaction so pay atention to what you're doing. Depending on what would you do, you may obtain an ally, an foe, friend or sometimes even someone who can change the way you see the world.</p>
+                                    <h3 className="recruit__questionNR">{questionNR}</h3>
+                                    <p className="recruit__questionInfo">{questionInfo}</p>
                                 </div>
                             </div>
                             <div className="recruit__rs">
                                 <div className="recruit__answersHolder">
 
-                                    <div className="recruit__answer">
+                                {showCharacterImage &&  <img src={`http://localhost:5000/api/${character}`} alt="character"/>}
+                                
+
+                                    {showAnswers && <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
-                                            I would try to hide and plug my computer to the local web so I can observe the other beeing and decide what should I do.
+                                            {answerInfo1}
                                         </div>
-                                        <button className="recruit__option-btn">
+                                        <button className="recruit__option-btn" onClick={() => this.handleFetchNextQuestion(1)}>
+                                            Choose
+                                    </button>
+                                    </div>}
+
+
+                                    {showAnswers && <div className="recruit__answer">
+                                        <div className="recruit__answerInfo">
+                                            {answerInfo2}
+                                        </div>
+                                        <button className="recruit__option-btn recruit__option-btn--green" onClick={() => this.handleFetchNextQuestion(2)}>
+                                            Choose
+                                    </button>
+                                    </div>}
+
+
+                                    {showAnswers && <div className="recruit__answer">
+                                        <div className="recruit__answerInfo">
+                                            {answerInfo3}
+                                        </div>
+                                        <button className="recruit__option-btn recruit__option-btn--yellow" onClick={() => this.handleFetchNextQuestion(3)}>
                                             Choose
                                     </button>
                                     </div>
+                                    }
 
-                                    <div className="recruit__answer">
+                                    {showAnswers && <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
-                                            New creature? It means only one thing: New preparation for the laboratory. I would try to get some of its DNA or blood and examine it.
+                                            {answerInfo4}
                                         </div>
-                                        <button className="recruit__option-btn recruit__option-btn--green">
+                                        <button className="recruit__option-btn recruit__option-btn--red" onClick={() => this.handleFetchNextQuestion(4)}>
                                             Choose
                                     </button>
-                                    </div>
+                                    </div>}
 
 
-                                    <div className="recruit__answer">
-                                        <div className="recruit__answerInfo">
-                                            I'm not interested in living beeings. Only creatures that surrended their live to the machines are worth checking! I would let it go.
-                                        </div>
-                                        <button className="recruit__option-btn recruit__option-btn--yellow">
-                                            Choose
-                                    </button>
-                                    </div>
-
-
-                                    <div className="recruit__answer">
-                                        <div className="recruit__answerInfo">
-                                            There is only one way to survive. You must be strong. I would let it go, but if it would be dangerous I would be less polite...
-                                        </div>
-                                        <button className="recruit__option-btn recruit__option-btn--red">
-                                            Choose
-                                    </button>
-                                    </div>
 
                                 </div>
                             </div>
