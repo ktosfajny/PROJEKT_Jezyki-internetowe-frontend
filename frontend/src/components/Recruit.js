@@ -60,7 +60,7 @@ class Recruit extends React.Component {
                                         <div className="recruit__answerInfo">
                                             ery action takes reaction so pay atention to what you're doing. Depending on what would you do
                                         </div>
-                                        <button className="recruit__option-btn">
+                                        <button className="recruit__option-btn recruit__option-btn--green">
                                             Choose
                                     </button>
                                     </div>
@@ -70,7 +70,7 @@ class Recruit extends React.Component {
                                         <div className="recruit__answerInfo">
                                             ery action takes reaction so pay atention to what you're doing. Depending on what would you do
                                         </div>
-                                        <button className="recruit__option-btn">
+                                        <button className="recruit__option-btn recruit__option-btn--yellow">
                                             Choose
                                     </button>
                                     </div>
@@ -80,7 +80,7 @@ class Recruit extends React.Component {
                                         <div className="recruit__answerInfo">
                                             ery action takes reaction so pay atention to what you're doing. Depending on what would you do
                                         </div>
-                                        <button className="recruit__option-btn">
+                                        <button className="recruit__option-btn recruit__option-btn--red">
                                             Choose
                                     </button>
                                     </div>
