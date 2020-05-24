@@ -40,6 +40,13 @@ const questionsDB = [
 ]
 
 
+const characters = [
+    { name: 'Net-Runner', info: 'You are a very knowledgeable person and you are good at solving problems.' },
+    { name: 'Bioengineer', info: 'You love everything that is living.' },
+    { name: 'Mechanic', info: 'You are not afraid to get dirty with oils.' },
+    { name: 'Shooter', info: 'You are strong person.' },
+]
+
 
 app.get('/', (req, res) => {
 
@@ -57,8 +64,17 @@ app.post('/api/question', (req, res) => {
 
     //jeśli odpowiedziales juz na wszystko to tutaj zwroci się ostateczny wynik
     if (nextQuestionNR === questionsDB.length) {
+
+
+
+        let characterNumber = Math.max(stats[0], stats[1], stats[2], stats[3])
+        characterIndex = stats.findIndex(stat => stat === characterNumber)
+
+        // tutaj sprawdzić jaka odpowiedź pada najczesciej i zwrocic odpwiendi tekst, potem na froncie odebrac to i wywolac inny fetch pobierajacy obrazek
+
         res.json({
-            result: 'result' //tutaj użytję 'stats'
+            result: 'result',
+            character: characters[characterIndex],
         })
 
     } else {
