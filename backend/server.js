@@ -32,7 +32,7 @@ const questionsDB = [
 
     { questionNR: `4. How you see yourself in the near future?`, questionInfo: `Beeing smart is one thing, but have an ability to improve you and your life throught life is also a big part of good member of our crew. Everyone improves himself so if you are stuck in a current palce you will be likely behind all the grat people who constantly tries hard on beeing better in a one, particular field`, answerInfo: [`Net is everything. It won't die unlike humnas. So for me, the best option would be to become an A.I. and live in the web.`, `Living creatures are beautiful. They borns, they live and eventually they shall die but not me! I'm a true mad scientist. I will manage to achive real eternity live.`, `Easy one. You can't live forever so I'm gonna become fully mechanised one with arms made of steel.`, `Live is the blessing because only when there is fear from dying, there is also thoughts to trying and get better`] },
 
-    { questionNR: `ξ. 37° 4ζ7′ 21,06″ φ N, 122ψ° 24′ 12,07″ λ. Do you know what that means?`, questionInfo: `Let's see if you really have an knowledge needed to be one of us!`, answerInfo: [`Looks like coordinates. I saw them may times on the web. Don't know where is the place but I can figure it out in a minute!`, `This is not my thing but I quess it's some king of coordinates to a certain place. I saw them in my lab books.`, `looks like coordinates to one of interstellar systems. I see those kind of characters often on my packages I'm buying recently.`, `Thoose are coordinates for one of solar systems from the Milk Way. I've travelled many solar systems and I know it's there for sure!`] },
+    { questionNR: `5. ξ. 37° 4ζ7′ 21,06″ φ N, 122ψ° 24′ 12,07″ λ. Do you know what that means?`, questionInfo: `Let's see if you really have an knowledge needed to be one of us!`, answerInfo: [`Looks like coordinates. I saw them may times on the web. Don't know where is the place but I can figure it out in a minute!`, `This is not my thing but I quess it's some king of coordinates to a certain place. I saw them in my lab books.`, `looks like coordinates to one of interstellar systems. I see those kind of characters often on my packages I'm buying recently.`, `Thoose are coordinates for one of solar systems from the Milk Way. I've travelled many solar systems and I know it's there for sure!`] },
 
     { questionNR: `6. あなたは美しいです. Do you know this language?`, questionInfo: `There is nothing better in getting good relationships with someone than beeing able to speak their langualge. Let's see if you know some of the most important languages in the universe.`, answerInfo: [`Yup. I know this lanuage and even are able to speak it. I learned most of the languages and applied them to my memory card chip`, `I've read every book in the universe trating on biological things and thanks to that I've learned many languages, of course including this one!`, `Yup! This is the language that the buisness producing many of parts for my robots are manufacturing.`, `Yeah, I even know beeings that speak this beautiful language! I've met them on one of my journeys.`] },
 
@@ -52,6 +52,7 @@ app.get('/', (req, res) => {
 app.post('/api/question', (req, res) => {
 
     const { nextQuestionNR, stats } = req.body
+    console.log(stats)
 
 
     //jeśli odpowiedziales juz na wszystko to tutaj zwroci się ostateczny wynik

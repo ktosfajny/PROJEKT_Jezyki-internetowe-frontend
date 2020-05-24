@@ -5,6 +5,7 @@ import { TweenMax } from 'gsap'
 class Recruit extends React.Component {
 
     nextQuestionNR = 0;
+    currentState = [0, 0, 0, 0];
 
     state = {
         questionNR: '',
@@ -12,14 +13,15 @@ class Recruit extends React.Component {
         answerInfo1: '',
         answerInfo2: '',
         answerInfo3: '',
-        answerInfo4: ''
+        answerInfo4: '',
+        // stats: [0, 0, 0, 0]
     }
 
 
     //ta funkcja jedynie wypełnia pola z pytaniami zdobytymi pytaniami
     fillQuestionElements(data) {
 
-        console.log(data)
+        // console.log(data)
         const { questionNR, questionInfo, answerInfo } = data.question
 
         this.setState({
@@ -28,7 +30,9 @@ class Recruit extends React.Component {
             answerInfo1: answerInfo[0],
             answerInfo2: answerInfo[1],
             answerInfo3: answerInfo[2],
-            answerInfo4: answerInfo[3]
+            answerInfo4: answerInfo[3],
+            // stats: [0, 0, 0, 0]
+
         })
 
         // { questionNR: `3. gthtrh`, questionInfo: `rewgew`, answerInfo: [`dh`, `htht`, ` yukmdudjy`, `myfg`] },
@@ -39,9 +43,19 @@ class Recruit extends React.Component {
 
 
     //ta funkcja fetchuje dane i jeśli się uda je zdobyć to wywołuje funkcje uzupełniającą pola z pytaniami
-    handleFetchData = () => {
+    handleFetchData = (buttonNR) => {
         // const { nextQuestionNR, stats } = req.body
 
+        // console.log(buttonNR)
+        const stats = this.currentState
+
+        stats.forEach((stat, statIndex) => {
+            if (statIndex + 1 === buttonNR) {
+                stats[statIndex]++;
+            }
+        })
+
+        // console.log(stats)
 
         //to będzie moja odpowiedź z servera
         // { questionNR: `3. gthtrh`, questionInfo: `rewgew`, answerInfo: [`dh`, `htht`, ` yukmdudjy`, `myfg`] },
@@ -50,7 +64,7 @@ class Recruit extends React.Component {
             method: 'POST',
             body: JSON.stringify({
                 nextQuestionNR: this.nextQuestionNR,
-                stats: []
+                stats,
             }), headers: {
                 'Content-Type': 'application/json',
             }
@@ -65,6 +79,8 @@ class Recruit extends React.Component {
             })
             .then(res => res.json())
             .then(data => {
+                console.log(data)
+                if (data.result) return
                 this.fillQuestionElements(data)
             })
 
@@ -97,7 +113,7 @@ class Recruit extends React.Component {
     // ta funkcja obsługuje pobranie kolejnego pytania poprzez jeśli kliknęło się na któryś z kolorowych buttonów
     handleFetchNextQuestion = (buttonNR) => {
         this.nextQuestionNR++;
-        this.handleFetchData()
+        this.handleFetchData(buttonNR)
 
 
     }
