@@ -10,19 +10,17 @@ function questions(app) {
         else questionsDB = JSON.parse(data)
     })
 
-    const characters = [
-        { name: 'Netrunner', info: 'You are a very knowledgeable person and you are good at solving problems.' },
-        { name: 'Bioengineer', info: 'You love everything that is living.' },
-        { name: 'Mechanic', info: 'You are not afraid to get dirty with oils.' },
-        { name: 'Shooter', info: 'You are strong person.' },
-    ]
+    let characters;
+    fs.readFile('../charactersDB.json', 'utf8', (err, data) => {
+        if (err) return console.log('Error: ' + err)
+        else characters = JSON.parse(data)
+    })
 
 
     //ten end-point obsługuje wysyłanie kolejnych pytań i okreslenie jaki jest typ characteru
     app.post('/api/question', (req, res) => {
 
         const { nextQuestionNR, stats } = req.body
-        console.log(stats)
 
         //jeśli odpowiedziales juz na wszystko to w tym if'ie zwroci się ostateczny wynik
         if (nextQuestionNR === questionsDB.length) {

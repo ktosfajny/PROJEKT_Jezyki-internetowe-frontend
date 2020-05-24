@@ -30,7 +30,6 @@ app.get('/', (req, res) => {
 
 })
 
-
 questions(app)
 
 characterImage(app)
