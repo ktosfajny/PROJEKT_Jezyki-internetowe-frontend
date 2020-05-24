@@ -6,7 +6,7 @@ class Recruit extends React.Component {
 
     nextQuestionNR = 0;
     currentState = [0, 0, 0, 0];
-
+  
     state = {
         questionNR: '',
         questionInfo: '',
@@ -15,6 +15,7 @@ class Recruit extends React.Component {
         answerInfo3: '',
         answerInfo4: '',
          showCharacterImage: false,
+         character: '',
         // stats: [0, 0, 0, 0]
     }
 
@@ -44,13 +45,13 @@ class Recruit extends React.Component {
 
             const { name, info } = data.character
 
-            
-
+         
             this.setState({
                 questionNR: name,
                 questionInfo: info,
                 showAnswers: false,
                 showCharacterImage: true,
+                character:name,
             })
         }
 
@@ -154,7 +155,7 @@ class Recruit extends React.Component {
 
     render() {
 
-        const { questionNR, questionInfo, answerInfo1, answerInfo2, answerInfo3, answerInfo4, showAnswers,showCharacterImage } = this.state
+        const { questionNR, questionInfo, answerInfo1, answerInfo2, answerInfo3, answerInfo4, showAnswers,showCharacterImage, character} = this.state
 
         return (
             <>
@@ -177,7 +178,7 @@ class Recruit extends React.Component {
                             <div className="recruit__rs">
                                 <div className="recruit__answersHolder">
 
-                                {showCharacterImage &&  <img src="http://localhost:5000/api/image" alt="character iamge"/>}
+                                {showCharacterImage &&  <img src={`http://localhost:5000/api/${character}`} alt="character"/>}
                                 
 
                                     {showAnswers && <div className="recruit__answer">

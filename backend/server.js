@@ -42,7 +42,7 @@ const questionsDB = [
 
 
 const characters = [
-    { name: 'Net-Runner', info: 'You are a very knowledgeable person and you are good at solving problems.' },
+    { name: 'Netrunner', info: 'You are a very knowledgeable person and you are good at solving problems.' },
     { name: 'Bioengineer', info: 'You love everything that is living.' },
     { name: 'Mechanic', info: 'You are not afraid to get dirty with oils.' },
     { name: 'Shooter', info: 'You are strong person.' },
@@ -92,9 +92,9 @@ app.post('/api/question', (req, res) => {
 
 
 // ten end-point zwraca obrazek
-app.get('/api/image', (req, res) => {
+app.get('/api/:character', (req, res) => {
 
-    const characterImage = 'NetRunner.png';
+    const characterImage = `${req.params.character}.png`;
 
     res.sendFile(characterImage, {
         root: path.join(__dirname, 'static')
