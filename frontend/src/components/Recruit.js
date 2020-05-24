@@ -4,8 +4,74 @@ import { TweenMax } from 'gsap'
 
 class Recruit extends React.Component {
 
+    state = {
+        questionNR: '',
+        questionInfo: '',
+        answerInfo1: '',
+        answerInfo2: '',
+        answerInfo3: '',
+        answerInfo4: ''
+    }
+
+
+    fillQuestionElements(data) {
+
+        console.log(data)
+        const { questionNR, questionInfo, answerInfo } = data.question
+
+        this.setState({
+            questionNR,
+            questionInfo,
+            answerInfo1: answerInfo[0],
+            answerInfo2: answerInfo[1],
+            answerInfo3: answerInfo[2],
+            answerInfo4: answerInfo[3]
+        })
+
+        // { questionNR: `3. gthtrh`, questionInfo: `rewgew`, answerInfo: [`dh`, `htht`, ` yukmdudjy`, `myfg`] },
+
+
+    }
+
+
+
+    handleFetchData = () => {
+        // const { nextQuestionNR, stats } = req.body
+
+        let nextQuestionNR = 0;
+
+        //to będzie moja odpowiedź z servera
+        // { questionNR: `3. gthtrh`, questionInfo: `rewgew`, answerInfo: [`dh`, `htht`, ` yukmdudjy`, `myfg`] },
+
+        fetch('http://localhost:5000/api/question', {
+            method: 'POST',
+            body: JSON.stringify({
+                nextQuestionNR,
+                stats: []
+            }), headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(res => {
+                if (res.ok) {
+                    return res
+                }
+                else {
+                    return console.log('something went wrong!')
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                this.fillQuestionElements(data)
+            })
+
+    }
+
 
     handleButtonClick = (e) => {
+
+        this.handleFetchData()
+
         const actionBtn = e.target;
         TweenMax.to(actionBtn, 2, {
             top: '20%',
@@ -26,6 +92,9 @@ class Recruit extends React.Component {
 
 
     render() {
+
+        const { questionNR, questionInfo, answerInfo1, answerInfo2, answerInfo3, answerInfo4 } = this.state
+
         return (
             <>
                 <div className="recruit__wrapper">
@@ -40,8 +109,8 @@ class Recruit extends React.Component {
                         <div className="recruit__cybershape">
                             <div className="recruit__ls">
                                 <div className="recruit__questionHolder">
-                                    <h3 className="recruit__questionNR">1. what would you do when see an alien?</h3>
-                                    <p className="recruit__questionInfo">Every action takes reaction so pay atention to what you're doing. Depending on what would you do, you may obtain an ally, an foe, friend or sometimes even someone who can change the way you see the world.</p>
+                                    <h3 className="recruit__questionNR">{questionNR}</h3>
+                                    <p className="recruit__questionInfo">{questionInfo}</p>
                                 </div>
                             </div>
                             <div className="recruit__rs">
@@ -49,7 +118,7 @@ class Recruit extends React.Component {
 
                                     <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
-                                            I would try to hide and plug my computer to the local web so I can observe the other beeing and decide what should I do.
+                                            {answerInfo1}
                                         </div>
                                         <button className="recruit__option-btn">
                                             Choose
@@ -58,7 +127,7 @@ class Recruit extends React.Component {
 
                                     <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
-                                            New creature? It means only one thing: New preparation for the laboratory. I would try to get some of its DNA or blood and examine it.
+                                            {answerInfo2}
                                         </div>
                                         <button className="recruit__option-btn recruit__option-btn--green">
                                             Choose
@@ -68,7 +137,7 @@ class Recruit extends React.Component {
 
                                     <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
-                                            I'm not interested in living beeings. Only creatures that surrended their live to the machines are worth checking! I would let it go.
+                                            {answerInfo3}
                                         </div>
                                         <button className="recruit__option-btn recruit__option-btn--yellow">
                                             Choose
@@ -78,7 +147,7 @@ class Recruit extends React.Component {
 
                                     <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
-                                            There is only one way to survive. You must be strong. I would let it go, but if it would be dangerous I would be less polite...
+                                            {answerInfo4}
                                         </div>
                                         <button className="recruit__option-btn recruit__option-btn--red">
                                             Choose
