@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../sass/CaptainTtitle.scss'
 
 const CaptainTtitle = (props) => {
 

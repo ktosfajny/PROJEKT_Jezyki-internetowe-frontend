@@ -1,7 +1,5 @@
-
-
 import React from 'react';
-
+import '../sass/CaptainImage.scss'
 
 const CaptainImage = (props) => {
 

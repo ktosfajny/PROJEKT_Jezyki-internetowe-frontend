@@ -122,10 +122,10 @@ class AboutMe extends React.Component {
                     <div className="aboutme__cybershape">
 
                         <CybershapeNeon
-                            class='aboutme__cybershape-neon-top'
+                            type='top'
                         />
                         <CybershapeNeon
-                            class='aboutme__cybershape-neon-right'
+                            type='right'
                         />
 
                         <div className="aboutme__ls">

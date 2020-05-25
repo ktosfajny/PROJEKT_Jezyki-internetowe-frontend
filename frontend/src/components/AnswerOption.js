@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../sass/AnswerOption.scss'
 
 const AnswerOption = (props) => {
 

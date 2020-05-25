@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../sass/RightSubtitleBox.scss'
 const RightSubtitleBox = (props) => {
 
     return (
