@@ -5,7 +5,7 @@ import { TweenMax } from 'gsap'
 
 import Infobox from './Infobox'
 import RightSubtitleBox from './RightSubtitleBox'
-
+import CybershapeNeon from './CybershapeNeon'
 
 class AboutMe extends React.Component {
 
@@ -125,8 +125,13 @@ class AboutMe extends React.Component {
                     </div>
 
                     <div className="aboutme__cybershape">
-                        <span className="aboutme__cybershape-neon-top"></span>
-                        <span className="aboutme__cybershape-neon-right"></span>
+
+                        <CybershapeNeon
+                            class='aboutme__cybershape-neon-top'
+                        />
+                        <CybershapeNeon
+                            class='aboutme__cybershape-neon-right'
+                        />
 
                         <div className="aboutme__ls">
                             <div className="aboutme__title-wrap">
