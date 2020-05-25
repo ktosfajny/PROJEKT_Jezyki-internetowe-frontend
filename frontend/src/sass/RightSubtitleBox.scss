@@ -1,0 +1,19 @@
+.aboutme {
+    &__right-subtitle-box {
+        height: 100%;
+        width: 50%;
+        border-right: 2px solid rgba(4, 163, 236, 0.8);
+        background: linear-gradient(165deg, rgba(5, 143, 235, 0.185), rgba(1, 16, 34, 0.8));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    &__right-subtitle {
+        color: #aeaeae;
+        font-size: 1.3rem;
+        transform: skew(-40deg);
+        filter: drop-shadow(0 0 2px rgb(5, 143, 235));
+    }
+}
