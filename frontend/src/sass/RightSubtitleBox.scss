@@ -17,3 +17,40 @@
         filter: drop-shadow(0 0 2px rgb(5, 143, 235));
     }
 }
+
+
+
+
+@media (max-width: 960px) {
+    .aboutme {
+        &__right-subtitle {
+            font-size: 1rem;
+        }
+    }
+}
+
+
+@media (max-width: 800px) {
+    .aboutme {
+        &__right-subtitle {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .aboutme {
+        &__right-subtitle {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+
+@media (max-width: 550px) {
+    .aboutme {
+        &__right-subtitle {
+            font-size: 0.7rem;
+        }
+    }
+}

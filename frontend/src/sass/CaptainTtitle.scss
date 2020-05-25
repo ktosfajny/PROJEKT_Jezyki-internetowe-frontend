@@ -50,3 +50,43 @@
 
     }
 }
+
+
+
+@media (max-width: 800px) {
+    .aboutme {
+
+        &__title {
+            font-size: 1.6rem;
+        }
+
+    }
+}
+
+
+@media (max-width: 700px) {
+    .aboutme {
+
+        &__title {
+            font-size: 1.5rem;
+        }
+
+    }
+}
+
+
+
+@media (max-width: 550px) {
+    .aboutme {
+
+
+        &__title-wrap {
+            margin-top: 10px;
+        }
+
+        &__title {
+            font-size: 1.2rem;
+        }
+
+    }
+}

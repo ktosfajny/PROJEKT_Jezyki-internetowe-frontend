@@ -18,3 +18,61 @@
         height: 145px;
     }
 }
+
+
+@media (max-width: 1230px) {
+    .recruit {
+        &__questionNR {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .recruit {
+        &__questionNR {
+            font-size: 1.1rem;
+        }
+
+        &__questionInfo {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .recruit {
+        &__questionNR {
+            font-size: 0.9rem;
+        }
+
+        &__questionInfo {
+            font-size: 0.7rem;
+        }
+    }
+}
+
+
+
+@media (max-width: 800px) {
+    .recruit {
+        &__questionNR {
+            font-size: 0.7rem;
+        }
+
+        &__questionInfo {
+            font-size: 0.7rem;
+        }
+    }
+}
+
+
+
+@media (max-width: 700px) {
+    .recruit {
+        &__questionNR {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
