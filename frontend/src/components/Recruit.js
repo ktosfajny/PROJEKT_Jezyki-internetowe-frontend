@@ -85,6 +85,8 @@ class Recruit extends React.Component {
 
             })
         })
+
+        // 3 razy używam setTimeout bo nie mogłem zapanować nad wykonaniem się tych fragmentó kodu w odpowiedniej kolejności
         setTimeout(() => {
             this.fillQuestionElements(data, 2)
         }, 1000)
