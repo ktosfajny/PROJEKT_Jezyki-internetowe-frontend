@@ -5,6 +5,8 @@ import { TweenMax } from 'gsap'
 import MainFetchButton from './MainFetchButton'
 import AnswerOption from './AnswerOption'
 import CharacterImage from './CharacterImage'
+import QuestionHolder from './QuestionHolder'
+
 
 class Recruit extends React.Component {
 
@@ -135,12 +137,11 @@ class Recruit extends React.Component {
 
                     <div className="recruit__questionsBox">
                         <div className="recruit__cybershape">
+
                             <div className="recruit__ls">
-                                <div className="recruit__questionHolder">
-                                    <h3 className="recruit__questionNR">{questionNR}</h3>
-                                    <p className="recruit__questionInfo">{questionInfo}</p>
-                                </div>
+                                <QuestionHolder questionNR={questionNR} questionInfo={questionInfo} />
                             </div>
+
                             <div className="recruit__rs">
                                 <div className="recruit__answersHolder">
 
