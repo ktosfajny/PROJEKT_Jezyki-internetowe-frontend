@@ -31,4 +31,4 @@
 
 W przypadku problemów lub pytań proszę o kontakt na BB
 
-> wszystkie zdjęcia użyte w projekcie pochodzą ze stron udostępniających stockowe zdjęcia do dowolnego użytku bez żadnych ograniczeń oraz z mojej prywatnej kolekcjii grafik
+> wszystkie zdjęcia użyte w projekcie pochodzą ze stron udostępniających stockowe zdjęcia do dowolnego użytku bez żadnych ograniczeń oraz z mojej prywatnej kolekcji grafik
