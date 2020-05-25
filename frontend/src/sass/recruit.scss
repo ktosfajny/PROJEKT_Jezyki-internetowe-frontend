@@ -272,16 +272,36 @@
 
     &__option-btn {
         padding: 15px 25px;
-        color: rgb(70, 160, 245);
+        // color: rgb(70, 160, 245);
         text-transform: uppercase;
         letter-spacing: 4px;
         font-size: 1rem;
         transition: 0.1s;
-        background: rgba(70, 160, 245, 0.609);
+        // background: rgba(70, 160, 245, 0.609);
         border: none;
         cursor: pointer;
         border-radius: 7px;
 
+        // box-shadow:
+        //     0 0 10px rgba(70, 160, 245, 0.609),
+        //     0 0 20px rgba(70, 160, 245, 0.609),
+        //     0 0 40px rgba(70, 160, 245, 0.609);
+
+
+        // &:hover {
+        //     color: rgb(6, 29, 51);
+        //     box-shadow:
+        //         0 0 10px rgba(70, 160, 245, 0.609),
+        //         0 0 20px rgba(70, 160, 245, 0.609),
+        //         0 0 40px rgba(70, 160, 245, 0.609),
+        //         0 0 80px rgba(70, 160, 245, 0.609);
+        // }
+
+    }
+
+    &__option-btn--blue {
+        color: rgb(70, 160, 245);
+        background: rgba(70, 160, 245, 0.609);
         box-shadow:
             0 0 10px rgba(70, 160, 245, 0.609),
             0 0 20px rgba(70, 160, 245, 0.609),
@@ -296,7 +316,6 @@
                 0 0 40px rgba(70, 160, 245, 0.609),
                 0 0 80px rgba(70, 160, 245, 0.609);
         }
-
     }
 
     &__option-btn--green {

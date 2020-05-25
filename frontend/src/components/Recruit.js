@@ -3,6 +3,8 @@ import '../sass/recruit.scss'
 import { TweenMax } from 'gsap'
 
 import MainFetchButton from './MainFetchButton'
+import AnswerOption from './AnswerOption'
+import CharacterImage from './CharacterImage'
 
 class Recruit extends React.Component {
 
@@ -142,47 +144,31 @@ class Recruit extends React.Component {
                             <div className="recruit__rs">
                                 <div className="recruit__answersHolder">
 
-                                    {showCharacterImage && <img src={`http://localhost:5000/api/${character}`} alt="character" />}
+                                    {showCharacterImage && <CharacterImage character={character} />}
 
+                                    {showAnswers && <AnswerOption
+                                        answerInfo={answerInfo1}
+                                        click={() => this.handleFetchNextQuestion(1)}
+                                        colorClass="blue"
+                                    />}
 
-                                    {showAnswers && <div className="recruit__answer">
-                                        <div className="recruit__answerInfo">
-                                            {answerInfo1}
-                                        </div>
-                                        <button className="recruit__option-btn" onClick={() => this.handleFetchNextQuestion(1)}>
-                                            Choose
-                                    </button>
-                                    </div>}
+                                    {showAnswers && <AnswerOption
+                                        answerInfo={answerInfo2}
+                                        click={() => this.handleFetchNextQuestion(2)}
+                                        colorClass="green"
+                                    />}
 
+                                    {showAnswers && <AnswerOption
+                                        answerInfo={answerInfo3}
+                                        click={() => this.handleFetchNextQuestion(3)}
+                                        colorClass="yellow"
+                                    />}
 
-                                    {showAnswers && <div className="recruit__answer">
-                                        <div className="recruit__answerInfo">
-                                            {answerInfo2}
-                                        </div>
-                                        <button className="recruit__option-btn recruit__option-btn--green" onClick={() => this.handleFetchNextQuestion(2)}>
-                                            Choose
-                                    </button>
-                                    </div>}
-
-
-                                    {showAnswers && <div className="recruit__answer">
-                                        <div className="recruit__answerInfo">
-                                            {answerInfo3}
-                                        </div>
-                                        <button className="recruit__option-btn recruit__option-btn--yellow" onClick={() => this.handleFetchNextQuestion(3)}>
-                                            Choose
-                                    </button>
-                                    </div>
-                                    }
-
-                                    {showAnswers && <div className="recruit__answer">
-                                        <div className="recruit__answerInfo">
-                                            {answerInfo4}
-                                        </div>
-                                        <button className="recruit__option-btn recruit__option-btn--red" onClick={() => this.handleFetchNextQuestion(4)}>
-                                            Choose
-                                    </button>
-                                    </div>}
+                                    {showAnswers && <AnswerOption
+                                        answerInfo={answerInfo4}
+                                        click={() => this.handleFetchNextQuestion(4)}
+                                        colorClass="red"
+                                    />}
                                 </div>
                             </div>
                         </div>
