@@ -3,7 +3,7 @@ import React from 'react';
 const CybershapeNeon = (props) => {
 
     return (
-        <span className={props.class}></span>
+        <span className={`aboutme__cybershape-neon-${props.type}`}></span>
     )
 }
 
