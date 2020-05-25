@@ -2,11 +2,13 @@ import React from 'react';
 import '../sass/recruit.scss'
 import { TweenMax } from 'gsap'
 
+import MainFetchButton from './MainFetchButton'
+
 class Recruit extends React.Component {
 
     nextQuestionNR = 0;
     currentState = [0, 0, 0, 0];
-  
+
     state = {
         questionNR: '',
         questionInfo: '',
@@ -14,9 +16,8 @@ class Recruit extends React.Component {
         answerInfo2: '',
         answerInfo3: '',
         answerInfo4: '',
-         showCharacterImage: false,
-         character: '',
-        // stats: [0, 0, 0, 0]
+        showCharacterImage: false,
+        character: '',
     }
 
 
@@ -24,8 +25,6 @@ class Recruit extends React.Component {
 
     //ta funkcja jedynie wypełnia pola z pytaniami zdobytymi pytaniami
     fillQuestionElements(data) {
-
-        // console.log(data)
 
         if (!data.result) {
             const { questionNR, questionInfo, answerInfo } = data.question
@@ -38,42 +37,21 @@ class Recruit extends React.Component {
                 answerInfo3: answerInfo[2],
                 answerInfo4: answerInfo[3],
                 showAnswers: true,
-                
-
             })
+
         } else {
 
             const { name, info } = data.character
 
-         
             this.setState({
                 questionNR: name,
                 questionInfo: info,
                 showAnswers: false,
                 showCharacterImage: true,
-                character:name,
+                character: name,
             })
         }
-
-
-        // { questionNR: `3. gthtrh`, questionInfo: `rewgew`, answerInfo: [`dh`, `htht`, ` yukmdudjy`, `myfg`] },
-
-
     }
-
-
-    // handleCharacterResponse = (data) => {
-    //     console.log(data)
-
-    //     // wstawić odpowiednie tytuly i zdjęcia:
-    //     // do questionNR - wstawtytuł "twoja kalsa to ... Net-Runner"
-    //     //poniżej wstawić zdjęcie (dodać go html tak sprawdzający czy jest zdjęcie i jak tak to je wyświetlić)
-
-    //     // tutaj trzeba usunąć przyciski i zrobic fetch po odpowiednie zdjecie
-
-
-    // }
-
 
     //ta funkcja fetchuje dane i jeśli się uda je zdobyć to wywołuje funkcje uzupełniającą pola z pytaniami
     handleFetchData = (buttonNR) => {
@@ -85,7 +63,6 @@ class Recruit extends React.Component {
                 stats[statIndex]++;
             }
         })
-
 
         fetch('http://localhost:5000/api/question', {
             method: 'POST',
@@ -106,16 +83,7 @@ class Recruit extends React.Component {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                // if (data.result) {
-                //     this.handleCharacterResponse(data)
-
-                // } else {
-                //     this.fillQuestionElements(data)
-                //     console.log('else')
-                // }
                 this.fillQuestionElements(data)
-
             })
 
     }
@@ -155,17 +123,13 @@ class Recruit extends React.Component {
 
     render() {
 
-        const { questionNR, questionInfo, answerInfo1, answerInfo2, answerInfo3, answerInfo4, showAnswers,showCharacterImage, character} = this.state
+        const { questionNR, questionInfo, answerInfo1, answerInfo2, answerInfo3, answerInfo4, showAnswers, showCharacterImage, character } = this.state
 
         return (
             <>
                 <div className="recruit__wrapper">
-                    <div className="recruit__btn" onClick={this.handleMainButtonClick}>
-                        <span className="recruit__btn-span"></span>
-                        <span className="recruit__btn-span"></span>
-                        <span className="recruit__btn-span"></span>
-                        <span className="recruit__btn-span"></span>
-                    </div>
+
+                    <MainFetchButton click={this.handleMainButtonClick} />
 
                     <div className="recruit__questionsBox">
                         <div className="recruit__cybershape">
@@ -178,8 +142,8 @@ class Recruit extends React.Component {
                             <div className="recruit__rs">
                                 <div className="recruit__answersHolder">
 
-                                {showCharacterImage &&  <img src={`http://localhost:5000/api/${character}`} alt="character"/>}
-                                
+                                    {showCharacterImage && <img src={`http://localhost:5000/api/${character}`} alt="character" />}
+
 
                                     {showAnswers && <div className="recruit__answer">
                                         <div className="recruit__answerInfo">
@@ -219,15 +183,10 @@ class Recruit extends React.Component {
                                             Choose
                                     </button>
                                     </div>}
-
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </>
         );
