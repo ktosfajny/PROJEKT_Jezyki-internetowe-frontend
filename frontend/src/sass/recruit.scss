@@ -140,132 +140,132 @@
 
     // -  - - - - - - - - - - -  BTN - - - - - - - - - - - - - - - - - - - -
 
-    &__btn {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        z-index: 2;
-        transform: translate(-50%, -50%);
-        width: 200px;
-        height: 200px;
-        overflow: hidden;
+    // &__btn {
+    //     position: relative;
+    //     top: 50%;
+    //     left: 50%;
+    //     z-index: 2;
+    //     transform: translate(-50%, -50%);
+    //     width: 200px;
+    //     height: 200px;
+    //     overflow: hidden;
 
 
-        &:hover {
-            cursor: pointer;
-            background: rgb(2, 147, 214);
-            box-shadow:
-                0 0 5px rgb(2, 147, 214),
-                0 0 25px rgb(2, 147, 214),
-                0 0 50px rgb(2, 147, 214),
-                0 0 200px rgb(2, 147, 214);
-        }
+    //     &:hover {
+    //         cursor: pointer;
+    //         background: rgb(2, 147, 214);
+    //         box-shadow:
+    //             0 0 5px rgb(2, 147, 214),
+    //             0 0 25px rgb(2, 147, 214),
+    //             0 0 50px rgb(2, 147, 214),
+    //             0 0 200px rgb(2, 147, 214);
+    //     }
 
-        &:hover::after {
-            content: 'Click Me!';
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: black;
-            font-size: 1.5rem;
-            font-family: 'Megrim', cursive;
-        }
+    //     &:hover::after {
+    //         content: 'Click Me!';
+    //         display: block;
+    //         position: absolute;
+    //         top: 50%;
+    //         left: 50%;
+    //         transform: translate(-50%, -50%);
+    //         color: black;
+    //         font-size: 1.5rem;
+    //         font-family: 'Megrim', cursive;
+    //     }
 
-    }
+    // }
 
-    &__btn-span {
-        position: absolute;
-        display: block;
+    // &__btn-span {
+    //     position: absolute;
+    //     display: block;
 
-        filter: drop-shadow(0 0 10px rgb(2, 147, 214));
+    //     filter: drop-shadow(0 0 10px rgb(2, 147, 214));
 
-        &:nth-child(1) {
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 30px;
-            background: linear-gradient(90deg, transparent, rgb(2, 147, 214));
-            animation: spanmove1 1s linear infinite;
-            animation-delay: 0s;
-        }
+    //     &:nth-child(1) {
+    //         top: 0;
+    //         left: -100%;
+    //         width: 100%;
+    //         height: 30px;
+    //         background: linear-gradient(90deg, transparent, rgb(2, 147, 214));
+    //         animation: spanmove1 1s linear infinite;
+    //         animation-delay: 0s;
+    //     }
 
-        @keyframes spanmove1 {
-            0% {
-                left: -100%;
-            }
+    //     @keyframes spanmove1 {
+    //         0% {
+    //             left: -100%;
+    //         }
 
-            100% {
-                left: 100%;
-            }
-        }
-
-
-
-        &:nth-child(3) {
-            bottom: 0;
-            left: -100%;
-            width: 100%;
-            height: 30px;
-            background: linear-gradient(270deg, transparent, rgb(2, 147, 214));
-            animation: spanmove3 1s linear infinite;
-            animation-delay: 0s;
-        }
-
-        @keyframes spanmove3 {
-            0% {
-                left: 100%;
-            }
-
-            100% {
-                left: -100%;
-            }
-        }
+    //         100% {
+    //             left: 100%;
+    //         }
+    //     }
 
 
-        &:nth-child(2) {
-            right: 0;
-            top: -100%;
-            width: 30px;
-            height: 100%;
-            background: linear-gradient(180deg, transparent, rgb(2, 147, 214));
-            animation: spanmove2 1s linear infinite;
-            animation-delay: 0.5s;
-        }
 
-        @keyframes spanmove2 {
-            0% {
-                top: -100%;
-            }
+    //     &:nth-child(3) {
+    //         bottom: 0;
+    //         left: -100%;
+    //         width: 100%;
+    //         height: 30px;
+    //         background: linear-gradient(270deg, transparent, rgb(2, 147, 214));
+    //         animation: spanmove3 1s linear infinite;
+    //         animation-delay: 0s;
+    //     }
 
-            100% {
-                top: 100%;
-            }
-        }
+    //     @keyframes spanmove3 {
+    //         0% {
+    //             left: 100%;
+    //         }
+
+    //         100% {
+    //             left: -100%;
+    //         }
+    //     }
 
 
-        &:nth-child(4) {
-            left: 0;
-            top: 100%;
-            width: 30px;
-            height: 100%;
-            background: linear-gradient(0deg, transparent, rgb(2, 147, 214));
-            animation: spanmove4 1s linear infinite;
-            animation-delay: 0.5s;
-        }
+    //     &:nth-child(2) {
+    //         right: 0;
+    //         top: -100%;
+    //         width: 30px;
+    //         height: 100%;
+    //         background: linear-gradient(180deg, transparent, rgb(2, 147, 214));
+    //         animation: spanmove2 1s linear infinite;
+    //         animation-delay: 0.5s;
+    //     }
 
-        @keyframes spanmove4 {
-            0% {
-                top: 100%;
-            }
+    //     @keyframes spanmove2 {
+    //         0% {
+    //             top: -100%;
+    //         }
 
-            100% {
-                top: -100%;
-            }
-        }
+    //         100% {
+    //             top: 100%;
+    //         }
+    //     }
 
-    }
+
+    //     &:nth-child(4) {
+    //         left: 0;
+    //         top: 100%;
+    //         width: 30px;
+    //         height: 100%;
+    //         background: linear-gradient(0deg, transparent, rgb(2, 147, 214));
+    //         animation: spanmove4 1s linear infinite;
+    //         animation-delay: 0.5s;
+    //     }
+
+    //     @keyframes spanmove4 {
+    //         0% {
+    //             top: 100%;
+    //         }
+
+    //         100% {
+    //             top: -100%;
+    //         }
+    //     }
+
+    // }
 
 
     //----------------------------------

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../sass/MainFetchButton.scss'
 
 const MainFetchButton = (props) => {
 
