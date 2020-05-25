@@ -141,56 +141,56 @@
         height: 145px;
     }
 
-    &__title-wrap {
-        height: 18%;
+    // &__title-wrap {
+    //     height: 18%;
 
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-    }
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: flex-end;
+    // }
 
-    &__title {
-        font-size: 2.5rem;
-        height: 100%;
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    // &__title {
+    //     font-size: 2.5rem;
+    //     height: 100%;
+    //     width: 50%;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
 
-        color: rgb(220, 220, 255);
-        filter: drop-shadow(0 0 2px rgb(5, 143, 235));
-        position: relative;
-
-
-    }
-
-    &__span {
-
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        height: 3px;
-        background-color: rgba(42, 94, 124, 0.8);
-        border-radius: 3px;
-        overflow: hidden;
+    //     color: rgb(220, 220, 255);
+    //     filter: drop-shadow(0 0 2px rgb(5, 143, 235));
+    //     position: relative;
 
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 40%;
-            height: 100%;
-            background-color: rgba(4, 163, 236, 0.8);
-            border-radius: 3px;
-            animation: spanmove 4s linear infinite;
+    // }
 
-        }
+    // &__span {
 
-    }
+    //     position: absolute;
+    //     bottom: 0;
+    //     right: 0;
+    //     width: 100%;
+    //     height: 3px;
+    //     background-color: rgba(42, 94, 124, 0.8);
+    //     border-radius: 3px;
+    //     overflow: hidden;
+
+
+    //     &::after {
+    //         content: '';
+    //         position: absolute;
+    //         top: 0;
+    //         left: 0;
+    //         display: block;
+    //         width: 40%;
+    //         height: 100%;
+    //         background-color: rgba(4, 163, 236, 0.8);
+    //         border-radius: 3px;
+    //         animation: spanmove 4s linear infinite;
+
+    //     }
+
+    // }
 
 
     // &__imageDiv {
