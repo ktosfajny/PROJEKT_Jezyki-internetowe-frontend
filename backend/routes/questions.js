@@ -5,13 +5,13 @@ function questions(app) {
 
     let questionsDB;
 
-    fs.readFile('../database.json', 'utf8', (err, data) => {
+    fs.readFile('database.json', 'utf8', (err, data) => {
         if (err) return console.log('Error: ' + err)
         else questionsDB = JSON.parse(data)
     })
 
     let characters;
-    fs.readFile('../charactersDB.json', 'utf8', (err, data) => {
+    fs.readFile('charactersDB.json', 'utf8', (err, data) => {
         if (err) return console.log('Error: ' + err)
         else characters = JSON.parse(data)
     })
