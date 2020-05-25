@@ -149,19 +149,11 @@ class AboutMe extends React.Component {
                             <Infobox
                                 title='WE NEED YOUR HELP'
                                 message={this.state.message1}
-                                wrapperClass='aboutme__info-box'
-                                titleClass='aboutme__info-title'
-                                infoClass='aboutme__info'
-                                cursorClass='aboutme__cursor'
                             />
 
                             <Infobox
                                 title='WHO WE NEED?'
                                 message={this.state.message2}
-                                wrapperClass='aboutme__info-box'
-                                titleClass='aboutme__info-title'
-                                infoClass='aboutme__info'
-                                cursorClass='aboutme__cursor'
                             />
 
 
