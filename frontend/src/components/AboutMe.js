@@ -6,6 +6,7 @@ import { TweenMax } from 'gsap'
 import Infobox from './Infobox'
 import RightSubtitleBox from './RightSubtitleBox'
 import CybershapeNeon from './CybershapeNeon'
+import CaptainTtitle from './CaptainTtitle';
 
 class AboutMe extends React.Component {
 
@@ -134,12 +135,13 @@ class AboutMe extends React.Component {
                         />
 
                         <div className="aboutme__ls">
-                            <div className="aboutme__title-wrap">
-                                <h2 className="aboutme__title">Architect <span className="aboutme__span"></span></h2>
-                            </div>
+
+                            <CaptainTtitle />
+
                             <div className="aboutme__imageDiv">
                                 <img className="aboutme__image" src={netrunner} alt="architect pic" />
                             </div>
+
                         </div>
 
                         <div className="aboutme__rs">
