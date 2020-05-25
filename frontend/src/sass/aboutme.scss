@@ -104,3 +104,72 @@
         transform: translateX(270%);
     }
 }
+
+
+@media (max-width: 1100px) {
+
+    .aboutme {
+        &__rs {
+            padding-top: 12%;
+        }
+    }
+}
+
+
+@media (max-width: 960px) {
+
+    .aboutme {
+        &__rs {
+            padding-top: 15%;
+        }
+
+    }
+}
+
+
+
+@media (max-width: 800px) {
+
+    .aboutme {
+        &__rs {
+            padding-top: 15%;
+        }
+
+        &__right-titles {
+            top: 4%;
+        }
+
+    }
+}
+
+
+@media (max-width: 550px) {
+
+
+
+    .aboutme {
+        height: auto;
+        min-height: 100vh;
+
+        &__cybershape {
+            clip-path: polygon(1% 2%, 44% 2%, 49% 8%, 90% 8%, 96% 25%, 96% 60%, 99% 73%, 99% 98%, 20% 98%, 1% 80%);
+
+        }
+
+        &__right-titles {
+            top: 2%;
+            transform: skew(27deg);
+            height: 55px;
+        }
+
+
+        &__ls {
+            padding-top: 10px;
+        }
+
+        &__rs {
+            transform: translateY(-20%);
+        }
+
+    }
+}

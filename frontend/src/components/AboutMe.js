@@ -24,7 +24,7 @@ class AboutMe extends React.Component {
 
 
     text = {
-        text1: `The are many galactic races in our galaxy: Grey alien, Reptilians, Energy beeing, Pleiades and so on. In order to be in good relations with each other race, we need to present ourselves as great, strong and willful beeings. It can't be achived without strong space force. So if you feel you are fitting us, let us know!`,
+        text1: `The are many galactic races in our galaxy: Grey alien, Reptilians, Energy beeing, Pleiades and so on. In order to be in good relations with each other race, we need to present ourselves as great, strong and willful beeings. So if you feel you are fitting us, let us know!`,
         text2: `Bio-mechanics, Net-runners, Hardware Mechanics, Smart ones and everyone who feel capable to handle cosmic tasks! Take the test and check if you are the one we are looking for!`
     }
 
