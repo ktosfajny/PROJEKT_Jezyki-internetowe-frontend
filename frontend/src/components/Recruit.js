@@ -23,13 +23,14 @@ class Recruit extends React.Component {
         showCharacterImage: false,
         character: '',
         mainButtonIsClicked: false,
+        spansAreNotVisible: false,
     }
 
 
 
 
     //ta funkcja jedynie wypełnia pola z pytaniami zdobytymi pytaniami
-    fillQuestionElements(data) {
+    fillQuestionElements(data, type) {
 
         if (!data.result) {
             const { questionNR, questionInfo, answerInfo } = data.question
@@ -45,18 +46,70 @@ class Recruit extends React.Component {
             })
 
         } else {
-
             const { name, info } = data.character
+            if (type === 1) {
+                this.setState({
+                    questionNR: name,
+                    questionInfo: info,
+                })
+            } else if (type === 2) {
 
-            this.setState({
-                questionNR: name,
-                questionInfo: info,
-                showAnswers: false,
-                showCharacterImage: true,
-                character: name,
-            })
+                this.setState({
+                    showAnswers: false,
+                    showCharacterImage: true,
+                    character: name,
+                    spansAreNotVisible: true,
+                })
+            }
+
+
+
+
         }
     }
+
+    handleFadingBeforeResult = (data) => {
+        const recruitAnswers = document.querySelectorAll('.recruit__answer');
+        const questionSpans = document.querySelectorAll('.recruit__questionHolder span')
+
+        recruitAnswers.forEach(answer => {
+            TweenMax.to(answer, 1, {
+                opacity: 0,
+
+            })
+        })
+
+        questionSpans.forEach(questionSpan => {
+            TweenMax.to(questionSpan, 1, {
+                opacity: 0,
+
+            })
+        })
+        setTimeout(() => {
+            this.fillQuestionElements(data, 2)
+        }, 1000)
+
+
+        setTimeout(() => {
+            this.fillQuestionElements(data, 1)
+        }, 1001)
+
+        setTimeout(() => {
+            questionSpans.forEach(questionSpan => {
+                TweenMax.to(questionSpan, 2, {
+                    delay: 1,
+                    opacity: 1,
+                })
+            })
+
+            const characterImage = document.querySelector('.recruit__characterImage')
+            TweenMax.to(characterImage, 2, {
+                delay: 1,
+                opacity: 1,
+            })
+        }, 1002)
+    }
+
 
     //ta funkcja fetchuje dane i jeśli się uda je zdobyć to wywołuje funkcje uzupełniającą pola z pytaniami
     handleFetchData = (buttonNR) => {
@@ -88,9 +141,13 @@ class Recruit extends React.Component {
             })
             .then(res => res.json())
             .then(data => {
-                this.fillQuestionElements(data)
-            })
 
+                if (data.result) {
+                    this.handleFadingBeforeResult(data)
+                } else {
+                    this.fillQuestionElements(data)
+                }
+            })
     }
 
 
@@ -137,7 +194,7 @@ class Recruit extends React.Component {
 
     render() {
 
-        const { questionNR, questionInfo, answerInfo1, answerInfo2, answerInfo3, answerInfo4, showAnswers, showCharacterImage, character } = this.state
+        const { questionNR, questionInfo, answerInfo1, answerInfo2, answerInfo3, answerInfo4, showAnswers, showCharacterImage, character, spansAreNotVisible } = this.state
 
         return (
             <>
@@ -149,7 +206,7 @@ class Recruit extends React.Component {
                         <div className="recruit__cybershape">
 
                             <div className="recruit__ls">
-                                <QuestionHolder questionNR={questionNR} questionInfo={questionInfo} />
+                                <QuestionHolder spansVisible={spansAreNotVisible} questionNR={questionNR} questionInfo={questionInfo} />
                             </div>
 
                             <div className="recruit__rs">

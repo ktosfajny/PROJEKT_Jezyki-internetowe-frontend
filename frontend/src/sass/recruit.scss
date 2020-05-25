@@ -69,4 +69,12 @@
         justify-content: space-between;
         align-items: flex-start;
     }
+
+
+
+
+    &__characterImage {
+        opacity: 0;
+        display: block;
+    }
 }
