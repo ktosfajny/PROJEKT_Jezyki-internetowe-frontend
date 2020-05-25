@@ -22,6 +22,7 @@ class Recruit extends React.Component {
         answerInfo4: '',
         showCharacterImage: false,
         character: '',
+        mainButtonIsClicked: false,
     }
 
 
@@ -99,6 +100,15 @@ class Recruit extends React.Component {
         this.handleFetchData()
 
         const actionBtn = e.target;
+
+        if (!this.state.mainButtonIsClicked) {
+            actionBtn.classList.add('clicked')
+
+            this.setState({
+                mainButtonIsClicked: true,
+            })
+        }
+
         TweenMax.to(actionBtn, 2, {
             top: '20%',
         })

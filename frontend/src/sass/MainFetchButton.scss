@@ -126,3 +126,13 @@
 
     }
 }
+
+
+.clicked {
+    background: rgb(2, 147, 214);
+    box-shadow:
+        0 0 5px rgb(2, 147, 214),
+        0 0 25px rgb(2, 147, 214),
+        0 0 50px rgb(2, 147, 214),
+        0 0 200px rgb(2, 147, 214);
+}
