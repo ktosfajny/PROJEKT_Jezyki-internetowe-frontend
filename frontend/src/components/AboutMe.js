@@ -7,6 +7,8 @@ import Infobox from './Infobox'
 import RightSubtitleBox from './RightSubtitleBox'
 import CybershapeNeon from './CybershapeNeon'
 import CaptainTtitle from './CaptainTtitle';
+import CaptainImage from './CaptainImage'
+
 
 class AboutMe extends React.Component {
 
@@ -138,9 +140,7 @@ class AboutMe extends React.Component {
 
                             <CaptainTtitle />
 
-                            <div className="aboutme__imageDiv">
-                                <img className="aboutme__image" src={netrunner} alt="architect pic" />
-                            </div>
+                            <CaptainImage image={netrunner} />
 
                         </div>
 
