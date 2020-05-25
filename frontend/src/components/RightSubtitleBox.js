@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 const RightSubtitleBox = (props) => {
 
     return (
-        <div className={props.boxClass}><span className={props.titleClass}>{props.title}</span>
+        <div className='aboutme__right-subtitle-box'><span className='aboutme__right-subtitle'>{props.title}</span>
         </div>
     )
 }

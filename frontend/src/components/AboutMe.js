@@ -113,17 +113,9 @@ class AboutMe extends React.Component {
 
                     <div className="aboutme__right-titles">
 
-                        <RightSubtitleBox
-                            boxClass='aboutme__right-subtitle-box'
-                            titleClass='aboutme__right-subtitle'
-                            title='History'
-                        />
+                        <RightSubtitleBox title='History' />
 
-                        <RightSubtitleBox
-                            boxClass='aboutme__right-subtitle-box'
-                            titleClass='aboutme__right-subtitle'
-                            title='Mission Data'
-                        />
+                        <RightSubtitleBox title='Mission Data' />
 
                     </div>
 
