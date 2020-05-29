@@ -1,7 +1,8 @@
 # FUTURE IS NOW
 
-
-> Zdecydowałem się nie hostować nigdzie tej strony toteż w celu jej sprawdzenia należy pobrać ją i uruchomić lokalnie
+---
+> Zdecydowałem się nie hostować jeszcze nigdzie tej strony (toteż w celu jej sprawdzenia należy pobrać ją i uruchomić lokalnie) jednakże prawdopodobnie wrzucę ją na jakiś hosting tzn nie jest to jeszcze ostateczna wersja tego projektu.
+---
 
 ### Instrukcja jak uruchomić:
 
