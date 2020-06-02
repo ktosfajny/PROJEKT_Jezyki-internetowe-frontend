@@ -124,7 +124,7 @@ class Recruit extends React.Component {
             }
         })
 
-        fetch('http://localhost:5000/api/question', {
+        fetch('https://future-is-now-server.herokuapp.com/api/question', {
             method: 'POST',
             body: JSON.stringify({
                 nextQuestionNR: this.nextQuestionNR,
